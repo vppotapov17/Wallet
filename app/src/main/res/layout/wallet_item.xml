@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="15dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/walletFlagCard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardCornerRadius="10dp"
+            android:layout_marginLeft="20dp"
+            >
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:id="@+id/walletFlag"
+                android:src="@drawable/rub"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/walletFlagCard"
+            android:text="Доллар (USD)"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/noah"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/walletName"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/difference"
+            app:layout_constraintRight_toLeftOf="@id/walletValue"
+            app:layout_constraintTop_toTopOf="@id/walletValue"
+            app:layout_constraintBottom_toBottomOf="@id/walletValue"
+            android:layout_marginRight="10dp"
+            android:text="+0.41"
+            android:textSize="13dp"
+            android:fontFamily="@font/noah"
+            android:textColor="@color/positiveGreen"
+            android:gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/walletValue"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="72,5 ₽"
+            android:textSize="18dp"
+            android:fontFamily="@font/noah"
+            android:textFontWeight="700"
+            android:textColor="@color/ColorSecondary"
+            android:layout_marginRight="20dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    
+</com.google.android.material.card.MaterialCardView>
