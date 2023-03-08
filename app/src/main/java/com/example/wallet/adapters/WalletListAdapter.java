@@ -1,5 +1,6 @@
 package com.example.wallet.adapters;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,10 +8,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wallet.R;
 import com.example.wallet.models.Wallet;
+import com.example.wallet.screens.WalletInfo.WalletInfoFragment;
 import com.example.wallet.utils.DateUtils;
 
 import java.text.SimpleDateFormat;
@@ -28,10 +32,11 @@ public class WalletListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private List<Wallet> walletList;
     private List<Date> sortedDates;
 
-    public WalletListAdapter(List<Wallet> walletList){
+    private FragmentManager fm;
+    public WalletListAdapter(List<Wallet> walletList, FragmentManager fm){
         this.walletList = walletList;
         this.lastDateCalendar = new GregorianCalendar();
-
+        this.fm = fm;
         this.sortedDates = DateUtils.sortDates(walletList.get(0).getValues());
         this.lastDateCalendar.setTime(sortedDates.get(0));
     }
@@ -60,18 +65,31 @@ public class WalletListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             String months[] = {"января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"};
             String currentMonth = months[lastDateCalendar.get(Calendar.MONTH)];
             String text = "По данным ЦБ РФ на ";
-            text += lastDateCalendar.get(Calendar.DAY_OF_MONTH) + " " + currentMonth + " " + lastDateCalendar.get(Calendar.YEAR) + " г.";
-
-            lastUpdateText.setText(text);
+            String date = DateUtils.getDateString(lastDateCalendar.getTime());
+            lastUpdateText.setText(text + date);
         }
         else{
+            Wallet wallet = walletList.get(position - 1);
+
+            holder.itemView.setOnClickListener((view -> {
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.addToBackStack(null);
+                WalletInfoFragment fragment = new WalletInfoFragment();
+                Bundle args = new Bundle();
+                args.putSerializable("current_wallet", wallet);
+                fragment.setArguments(args);
+                ft.setCustomAnimations(R.anim.slide_left_open, R.anim.slide_left_close, R.anim.slide_right_open, R.anim.slide_right_close);
+
+                ft.replace(R.id.fragmentContainer, fragment).commit();
+            }));
+
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             ImageView flag = holder.itemView.findViewById(R.id.walletFlag);
             TextView name = holder.itemView.findViewById(R.id.walletName);
             TextView value = holder.itemView.findViewById(R.id.walletValue);
             TextView difference = holder.itemView.findViewById(R.id.difference);
 
-            Wallet wallet = walletList.get(position - 1);
+
 
             double todayValue = wallet.getValues().get(dateFormat.format(sortedDates.get(0)));
             double yesterdayValue = wallet.getValues().get(dateFormat.format(sortedDates.get(1)));

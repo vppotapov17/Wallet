@@ -7,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.wallet.R;
+import com.example.wallet.screens.WalletInfo.WalletInfoFragment;
 import com.example.wallet.screens.Wallets.WalletsFragment;
 
 public class MainActivity extends AppCompatActivity {

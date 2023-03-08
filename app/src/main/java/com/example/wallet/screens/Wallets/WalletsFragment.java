@@ -1,6 +1,7 @@
 package com.example.wallet.screens.Wallets;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,21 +45,24 @@ public class WalletsFragment extends Fragment {
         MaterialButton retryButton = getView().findViewById(R.id.retryButton);
         ProgressBar progressBar = getView().findViewById(R.id.progressBar);
 
-        vm.getWalletListLiveData().observe(this, walletList -> {
-            progressBar.setVisibility(View.INVISIBLE);
-            if (walletList != null){
-                if (walletList.size() != 0){
-                    RecyclerView walletListRV = getView().findViewById(R.id.walletListRv);
+        new Handler().postDelayed(()->{
+            vm.getWalletListLiveData().observe(this, walletList -> {
+                progressBar.setVisibility(View.INVISIBLE);
+                if (walletList != null){
+                    if (walletList.size() != 0){
+                        RecyclerView walletListRV = getView().findViewById(R.id.walletListRv);
 
-                    walletListRV.setLayoutManager(new LinearLayoutManager(getContext()));
-                    walletListRV.setAdapter(new WalletListAdapter(walletList));
-                    errorLayout.setVisibility(View.INVISIBLE);
+                        walletListRV.setLayoutManager(new LinearLayoutManager(getContext()));
+                        walletListRV.setAdapter(new WalletListAdapter(walletList, getActivity().getSupportFragmentManager()));
+                        errorLayout.setVisibility(View.INVISIBLE);
+                    }
+                    else errorLayout.setVisibility(View.VISIBLE);
                 }
                 else errorLayout.setVisibility(View.VISIBLE);
-            }
-            else errorLayout.setVisibility(View.VISIBLE);
 
-        });
+            });
+
+        }, 400);
 
         retryButton.setOnClickListener(view -> {
             progressBar.setVisibility(View.VISIBLE);

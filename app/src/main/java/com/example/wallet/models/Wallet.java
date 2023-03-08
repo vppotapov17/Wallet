@@ -1,9 +1,10 @@
 package com.example.wallet.models;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Wallet {
+public class Wallet implements Serializable {
     private int flagIcon;
     private String name;
 

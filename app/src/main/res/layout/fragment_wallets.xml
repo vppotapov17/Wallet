@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="Курс валют"
             android:fontFamily="@font/noah"
-            android:textSize="22sp"
+            android:textSize="20dp"
             android:textColor="@color/ColorSecondary"
             android:textFontWeight="600"
             />
