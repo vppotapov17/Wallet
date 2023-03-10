@@ -9,7 +9,6 @@
         android:layout_height="?attr/actionBarSize"
         android:text="Привет"
         android:id="@+id/appBar"
-        android:background="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:gravity="center"
@@ -21,8 +20,8 @@
             android:text="Курс валют"
             android:fontFamily="@font/noah"
             android:textSize="20dp"
-            android:textColor="@color/ColorSecondary"
             android:textFontWeight="600"
+            android:textColor="@color/textColorPrimary"
             />
 
     </com.google.android.material.appbar.AppBarLayout>

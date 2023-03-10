@@ -2,11 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.Wallet" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#3F869D</item>
+        <item name="colorPrimary">#ffffff</item>
+        <item name="colorAccent">@color/negativeRed</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#3d3d3d</item>
+        <item name="colorSecondary">@color/negativeRed</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">#3F869D</item>
+        <item name="textFillColor">#000000</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

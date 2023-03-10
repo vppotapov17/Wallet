@@ -13,7 +13,8 @@
         android:fontFamily="@font/noah"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textSize="16dp"
+        android:textSize="15dp"
+        android:textColor="@color/textColorSecondary"
         android:id="@+id/lastChangeDate"
         android:text="Сегодня"/>
 
@@ -21,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/noah"
-        android:textColor="@color/black"
+        android:textColor="@color/textColorPrimary"
         android:id="@+id/lastChangeValue"
         app:layout_constraintTop_toBottomOf="@id/lastChangeDate"
         android:text="72.52 ₽"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -9,7 +10,6 @@
         android:layout_height="?attr/actionBarSize"
         android:text="Привет"
         android:id="@+id/appBar"
-        android:background="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:gravity="center"
@@ -29,8 +29,8 @@
                 android:text="Доллар (USD)"
                 android:fontFamily="@font/noah"
                 android:textSize="20dp"
-                android:textColor="@color/ColorSecondary"
                 android:textFontWeight="600"
+                android:textColor="@color/textColorPrimary"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -49,16 +49,17 @@
         android:fontFamily="@font/noah"
         android:textSize="22dp"
         android:id="@+id/convertText"
+        android:textColor="@color/textColorPrimary"
         app:layout_constraintTop_toBottomOf="@id/appBar"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/black"/>
+        android:layout_marginTop="20dp" />
 
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/cardBackgroundColor"
         app:layout_constraintTop_toBottomOf="@id/convertText"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
@@ -101,10 +102,10 @@
                 android:layout_width="match_parent"
                 android:paddingRight="5dp"
                 android:id="@+id/wallet1_value"
-                android:background="@color/white"
+                android:background="@color/cardBackgroundColor"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:textColor="@color/ColorSecondary"
+                android:textColor="@color/textColorPrimary"
                 android:padding="5dp"
                 android:text="1"
                 android:textSize="20dp"
@@ -132,58 +133,56 @@
 
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/walletCard2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/arrows_equal"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
-        app:strokeWidth="0dp"
-        app:cardElevation="7dp"
         app:cardCornerRadius="20dp"
-        android:id="@+id/walletCard2"
-        >
+        app:cardElevation="7dp"
+        app:cardBackgroundColor="@color/cardBackgroundColor"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/arrows_equal"
+        app:strokeWidth="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            >
+            android:gravity="center">
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintRight_toLeftOf="@id/title"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:cardCornerRadius="7dp"
                 android:focusable="true"
-                >
+                app:cardCornerRadius="7dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/title"
+                app:layout_constraintTop_toTopOf="parent">
+
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/rub"
-                    />
+                    android:src="@drawable/rub" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:paddingRight="5dp"
                 android:id="@+id/wallet2_value"
-                android:background="@color/white"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:textColor="@color/ColorSecondary"
-                android:padding="5dp"
-                android:text="1"
-                android:textSize="20dp"
+                android:background="@color/cardBackgroundColor"
                 android:fontFamily="@font/chenla"
-                android:inputType="numberDecimal">
+                android:inputType="numberDecimal"
+                android:padding="5dp"
+                android:paddingRight="5dp"
+                android:text="1"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="20dp">
 
             </com.google.android.material.textfield.TextInputEditText>
 
@@ -200,9 +199,9 @@
         android:id="@+id/lastChangesText"
         app:layout_constraintTop_toBottomOf="@id/walletCard2"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/textColorPrimary"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/black"/>
+        android:layout_marginTop="30dp" />
 
 
     <androidx.recyclerview.widget.RecyclerView

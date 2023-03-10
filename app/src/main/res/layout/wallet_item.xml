@@ -9,6 +9,7 @@
     android:layout_marginTop="20dp"
     android:layout_marginLeft="15dp"
     android:layout_marginRight="15dp"
+    app:cardBackgroundColor="@color/cardBackgroundColor"
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -43,7 +44,7 @@
             app:layout_constraintLeft_toRightOf="@id/walletFlagCard"
             android:text="Доллар (USD)"
             android:textSize="18dp"
-            android:textColor="@color/black"
+            android:textColor="@color/textColorPrimary"
             android:fontFamily="@font/noah"
             android:layout_marginLeft="20dp"
             android:id="@+id/walletName"/>
@@ -72,9 +73,9 @@
             app:layout_constraintRight_toRightOf="parent"
             android:text="72,5 ₽"
             android:textSize="18dp"
+            android:textColor="@color/textColorSecondary"
             android:fontFamily="@font/noah"
             android:textFontWeight="700"
-            android:textColor="@color/ColorSecondary"
             android:layout_marginRight="20dp"
             />
 
